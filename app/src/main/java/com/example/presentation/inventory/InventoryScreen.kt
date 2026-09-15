@@ -15,6 +15,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,6 +36,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Share
 import com.example.presentation.components.AppIcons
+import com.example.ui.theme.ThemeState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -185,6 +187,19 @@ fun InventoryScreen(
                     }
                 },
                 actions = {
+                    val systemDark = isSystemInDarkTheme()
+                    val isDark = ThemeState.isDarkTheme(context, systemDark)
+                    IconButton(
+                        onClick = {
+                            ThemeState.toggle(context, systemDark)
+                        },
+                        modifier = Modifier.testTag("theme_toggle_inventory_button")
+                    ) {
+                        Icon(
+                            imageVector = if (isDark) AppIcons.LightMode else AppIcons.DarkMode,
+                            contentDescription = if (isDark) "تفعيل الثيم الفاتح" else "تفعيل الثيم الداكن"
+                        )
+                    }
                     IconButton(
                         onClick = { viewModel.shareInventory() },
                         modifier = Modifier.testTag("share_top_button")

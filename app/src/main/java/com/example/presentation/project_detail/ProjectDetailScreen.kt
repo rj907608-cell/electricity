@@ -6,6 +6,7 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,6 +32,7 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.MoreVert
 import com.example.presentation.components.AppIcons
+import com.example.ui.theme.ThemeState
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -143,6 +145,20 @@ fun ProjectDetailScreen(
                     }
                 },
                 actions = {
+                    val systemDark = isSystemInDarkTheme()
+                    val isDark = ThemeState.isDarkTheme(context, systemDark)
+                    IconButton(
+                        onClick = {
+                            triggerHapticFeedback()
+                            ThemeState.toggle(context, systemDark)
+                        },
+                        modifier = Modifier.testTag("theme_toggle_detail_button")
+                    ) {
+                        Icon(
+                            imageVector = if (isDark) AppIcons.LightMode else AppIcons.DarkMode,
+                            contentDescription = if (isDark) "تفعيل الثيم الفاتح" else "تفعيل الثيم الداكن"
+                        )
+                    }
                     Button(
                         onClick = {
                             uiState.project?.let { onNavigateToInventory(it.id) }
@@ -434,7 +450,7 @@ fun SectorInputDialog(
     onDismiss: () -> Unit
 ) {
     var name by remember { mutableStateOf(initialName) }
-    val commonSuggestions = listOf("صالون", "غرفة نوم", "مطبخ", "حمام", "ممر", "مدخل", "شرفة", "سطح")
+    val commonSuggestions = listOf("غرفة", "خارج المنزل", "صالون", "غرفة نوم", "مطبخ", "حمام", "ممر", "مدخل", "شرفة", "سطح")
 
     AlertDialog(
         onDismissRequest = onDismiss,

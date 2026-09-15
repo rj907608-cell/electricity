@@ -22,6 +22,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "مستلزمات الكهرباء"
+rootProject.name = "الكهربجي"
 
 include(":app")

@@ -347,4 +347,106 @@ object AppIcons {
             close()
         }.build()
     }
+
+    val DarkMode: ImageVector by lazy {
+        ImageVector.Builder(
+            name = "DarkMode",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).path(fill = SolidColor(Color.Black)) {
+            moveTo(12f, 3f)
+            curveTo(6.48f, 3f, 2f, 7.48f, 2f, 13f)
+            curveToRelative(0f, 5.52f, 4.48f, 10f, 10f, 10f)
+            curveToRelative(5.52f, 0f, 10f, -4.48f, 10f, -10f)
+            curveToRelative(0f, -0.34f, -0.02f, -0.67f, -0.05f, -1f)
+            curveToRelative(-0.66f, 0.44f, -1.45f, 0.7f, -2.3f, 0.7f)
+            curveToRelative(-2.49f, 0f, -4.5f, -2.01f, -4.5f, -4.5f)
+            curveToRelative(0f, -1.88f, 1.15f, -3.48f, 2.79f, -4.17f)
+            curveTo(16.5f, 3.38f, 14.34f, 3f, 12f, 3f)
+            close()
+        }.build()
+    }
+
+    val LightMode: ImageVector by lazy {
+        ImageVector.Builder(
+            name = "LightMode",
+            defaultWidth = 24.dp,
+            defaultHeight = 24.dp,
+            viewportWidth = 24f,
+            viewportHeight = 24f
+        ).path(fill = SolidColor(Color.Black)) {
+            moveTo(12f, 7f)
+            curveToRelative(-2.76f, 0f, -5f, 2.24f, -5f, 5f)
+            reflectiveCurveToRelative(2.24f, 5f, 5f, 5f)
+            reflectiveCurveToRelative(5f, -2.24f, 5f, -5f)
+            reflectiveCurveToRelative(-2.24f, -5f, -5f, -5f)
+            close()
+            moveTo(2f, 13f)
+            horizontalLineToRelative(2f)
+            curveToRelative(0.55f, 0f, 1f, -0.45f, 1f, -1f)
+            reflectiveCurveToRelative(-0.45f, -1f, -1f, -1f)
+            lineTo(2f, 11f)
+            curveToRelative(-0.55f, 0f, -1f, 0.45f, -1f, 1f)
+            reflectiveCurveToRelative(0.45f, 1f, 1f, 1f)
+            close()
+            moveTo(20f, 13f)
+            horizontalLineToRelative(2f)
+            curveToRelative(0.55f, 0f, 1f, -0.45f, 1f, -1f)
+            reflectiveCurveToRelative(-0.45f, -1f, -1f, -1f)
+            horizontalLineToRelative(-2f)
+            curveToRelative(-0.55f, 0f, -1f, 0.45f, -1f, 1f)
+            reflectiveCurveToRelative(0.45f, 1f, 1f, 1f)
+            close()
+            moveTo(11f, 2f)
+            verticalLineToRelative(2f)
+            curveToRelative(0f, 0.55f, 0.45f, 1f, 1f, 1f)
+            reflectiveCurveToRelative(1f, -0.45f, 1f, -1f)
+            lineTo(13f, 2f)
+            curveToRelative(0f, -0.55f, -0.45f, -1f, -1f, -1f)
+            reflectiveCurveToRelative(-1f, 0.45f, -1f, 1f)
+            close()
+            moveTo(11f, 20f)
+            verticalLineToRelative(2f)
+            curveToRelative(0f, 0.55f, 0.45f, 1f, 1f, 1f)
+            reflectiveCurveToRelative(1f, -0.45f, 1f, -1f)
+            verticalLineToRelative(-2f)
+            curveToRelative(0f, -0.55f, -0.45f, -1f, -1f, -1f)
+            reflectiveCurveToRelative(-1f, 0.45f, -1f, 1f)
+            close()
+            moveTo(5.99f, 4.58f)
+            curveToRelative(-0.39f, -0.39f, -1.03f, -0.39f, -1.41f, 0f)
+            reflectiveCurveToRelative(-0.39f, 1.03f, 0f, 1.41f)
+            lineToRelative(1.06f, 1.06f)
+            curveToRelative(0.39f, 0.39f, 1.03f, 0.39f, 1.41f, 0f)
+            reflectiveCurveToRelative(0.39f, -1.03f, 0f, -1.41f)
+            lineTo(5.99f, 4.58f)
+            close()
+            moveTo(18.36f, 16.95f)
+            curveToRelative(-0.39f, -0.39f, -1.03f, -0.39f, -1.41f, 0f)
+            reflectiveCurveToRelative(-0.39f, 1.03f, 0f, 1.41f)
+            lineToRelative(1.06f, 1.06f)
+            curveToRelative(0.39f, 0.39f, 1.03f, 0.39f, 1.41f, 0f)
+            reflectiveCurveToRelative(0.39f, -1.03f, 0f, -1.41f)
+            lineToRelative(-1.06f, -1.06f)
+            close()
+            moveTo(7.05f, 18.36f)
+            lineToRelative(-1.06f, 1.06f)
+            curveToRelative(-0.39f, 0.39f, -0.39f, 1.03f, 0f, 1.41f)
+            reflectiveCurveToRelative(1.03f, 0.39f, 1.41f, 0f)
+            lineToRelative(1.06f, -1.06f)
+            curveToRelative(0.39f, -0.39f, 0.39f, -1.03f, 0f, -1.41f)
+            reflectiveCurveToRelative(-1.02f, -0.39f, -1.41f, 0f)
+            close()
+            moveTo(16.95f, 7.05f)
+            lineToRelative(1.06f, -1.06f)
+            curveToRelative(0.39f, -0.39f, 0.39f, -1.03f, 0f, -1.41f)
+            reflectiveCurveToRelative(-1.03f, -0.39f, -1.41f, 0f)
+            lineToRelative(-1.06f, 1.06f)
+            curveToRelative(-0.39f, 0.39f, -0.39f, 1.03f, 0f, 1.41f)
+            reflectiveCurveToRelative(1.03f, 0.39f, 1.41f, 0f)
+            close()
+        }.build()
+    }
 }

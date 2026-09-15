@@ -7,6 +7,7 @@ import android.os.Vibrator
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,6 +29,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import com.example.presentation.components.AppIcons
+import com.example.ui.theme.ThemeState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -121,6 +123,20 @@ fun SectorItemsScreen(
                     }
                 },
                 actions = {
+                    val systemDark = isSystemInDarkTheme()
+                    val isDark = ThemeState.isDarkTheme(context, systemDark)
+                    IconButton(
+                        onClick = {
+                            triggerHaptic(strong = false)
+                            ThemeState.toggle(context, systemDark)
+                        },
+                        modifier = Modifier.testTag("theme_toggle_sector_items_button")
+                    ) {
+                        Icon(
+                            imageVector = if (isDark) AppIcons.LightMode else AppIcons.DarkMode,
+                            contentDescription = if (isDark) "تفعيل الثيم الفاتح" else "تفعيل الثيم الداكن"
+                        )
+                    }
                     Button(
                         onClick = {
                             triggerHaptic(strong = true)
@@ -149,49 +165,6 @@ fun SectorItemsScreen(
                     containerColor = MaterialTheme.colorScheme.surface
                 )
             )
-        },
-        bottomBar = {
-            Surface(
-                shadowElevation = 8.dp,
-                color = MaterialTheme.colorScheme.surface,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 12.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column {
-                        Text(
-                            text = "المواد المحددة: ${uiState.totalSelectedItems} صنف",
-                            style = MaterialTheme.typography.bodyMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
-                        Text(
-                            text = "إجمالي الكمية: ${uiState.totalQuantity} وحدة",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.primary,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                    }
-
-                    Button(
-                        onClick = {
-                            triggerHaptic(strong = true)
-                            onNavigateBack()
-                        },
-                        shape = RoundedCornerShape(12.dp),
-                        modifier = Modifier.testTag("done_bottom_button")
-                    ) {
-                        Icon(Icons.Default.Check, contentDescription = null)
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Text("حفظ والعودة", fontWeight = FontWeight.Bold)
-                    }
-                }
-            }
         }
     ) { innerPadding ->
         Column(

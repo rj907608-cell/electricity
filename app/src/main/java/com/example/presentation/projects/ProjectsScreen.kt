@@ -10,6 +10,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -71,6 +72,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.domain.model.ProjectSummary
+import com.example.ui.theme.ThemeState
 import com.example.presentation.components.ConfirmDeleteDialog
 import com.example.presentation.components.EmptyStateView
 import com.example.presentation.components.SearchInputField
@@ -139,13 +141,27 @@ fun ProjectsScreen(
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = "مشاريع الكهرباء",
+                            text = "الكهربجي",
                             style = MaterialTheme.typography.titleLarge,
                             fontWeight = FontWeight.Bold
                         )
                     }
                 },
                 actions = {
+                    val systemDark = isSystemInDarkTheme()
+                    val isDark = ThemeState.isDarkTheme(context, systemDark)
+                    IconButton(
+                        onClick = {
+                            triggerHapticFeedback()
+                            ThemeState.toggle(context, systemDark)
+                        },
+                        modifier = Modifier.testTag("theme_toggle_button")
+                    ) {
+                        Icon(
+                            imageVector = if (isDark) AppIcons.LightMode else AppIcons.DarkMode,
+                            contentDescription = if (isDark) "تفعيل الثيم الفاتح" else "تفعيل الثيم الداكن"
+                        )
+                    }
                     Box {
                         IconButton(
                             onClick = { showSortMenu = true },

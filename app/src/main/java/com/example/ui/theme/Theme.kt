@@ -1,17 +1,45 @@
 package com.example.ui.theme
 
-import android.os.Build
+import android.content.Context
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
+
+object ThemeState {
+    private const val PREFS_NAME = "app_theme_prefs"
+    private const val KEY_IS_DARK = "key_is_dark"
+
+    val isDark = mutableStateOf<Boolean?>(null)
+
+    fun isDarkTheme(context: Context, isSystemDark: Boolean): Boolean {
+        if (isDark.value == null) {
+            val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            if (prefs.contains(KEY_IS_DARK)) {
+                isDark.value = prefs.getBoolean(KEY_IS_DARK, isSystemDark)
+            } else {
+                isDark.value = isSystemDark
+            }
+        }
+        return isDark.value ?: isSystemDark
+    }
+
+    fun toggle(context: Context, isSystemDark: Boolean) {
+        val current = isDark.value ?: isSystemDark
+        val next = !current
+        isDark.value = next
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .edit()
+            .putBoolean(KEY_IS_DARK, next)
+            .apply()
+    }
+}
 
 private val DarkColorScheme = darkColorScheme(
     primary = md_theme_dark_primary,
@@ -67,18 +95,10 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun MyApplicationTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    darkTheme: Boolean = ThemeState.isDarkTheme(LocalContext.current, isSystemInDarkTheme()),
     content: @Composable () -> Unit,
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
+    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
 
     // Wrap with RTL layout direction natively for complete Arabic interface
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
