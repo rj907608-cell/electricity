@@ -39,6 +39,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -130,14 +131,14 @@ fun ProjectsScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            CenterAlignedTopAppBar(
+            TopAppBar(
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
                             imageVector = AppIcons.ElectricBolt,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(24.dp)
+                            modifier = Modifier.size(26.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
@@ -546,7 +547,7 @@ fun ProjectInputDialog(
                             else -> null
                         }
                     },
-                    label = { Text("اسم المشروع (مثل: فيلا الياسمين)") },
+                    label = { Text("اسم المشروع") },
                     supportingText = {
                         Row(
                             modifier = Modifier.fillMaxWidth(),

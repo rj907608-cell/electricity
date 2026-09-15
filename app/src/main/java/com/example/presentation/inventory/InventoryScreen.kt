@@ -264,6 +264,7 @@ fun InventoryScreen(
                                         .weight(1f)
                                         .testTag("copy_button"),
                                     shape = RoundedCornerShape(12.dp),
+                                    contentPadding = PaddingValues(horizontal = 4.dp, vertical = 10.dp),
                                     colors = ButtonDefaults.buttonColors(
                                         containerColor = MaterialTheme.colorScheme.primaryContainer,
                                         contentColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -271,7 +272,7 @@ fun InventoryScreen(
                                 ) {
                                     Icon(AppIcons.ContentCopy, contentDescription = null, modifier = Modifier.size(18.dp))
                                     Spacer(modifier = Modifier.width(6.dp))
-                                    Text("نسخ", fontWeight = FontWeight.SemiBold)
+                                    Text("نسخ", fontWeight = FontWeight.SemiBold, maxLines = 1)
                                 }
 
                                 Button(
@@ -280,14 +281,15 @@ fun InventoryScreen(
                                         .weight(1f)
                                         .testTag("share_button"),
                                     shape = RoundedCornerShape(12.dp),
+                                    contentPadding = PaddingValues(horizontal = 4.dp, vertical = 10.dp),
                                     colors = ButtonDefaults.buttonColors(
-                                        containerColor = MaterialTheme.colorScheme.secondary,
-                                        contentColor = MaterialTheme.colorScheme.onSecondary
+                                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer
                                     )
                                 ) {
                                     Icon(Icons.Default.Share, contentDescription = null, modifier = Modifier.size(18.dp))
                                     Spacer(modifier = Modifier.width(6.dp))
-                                    Text("مشاركة", fontWeight = FontWeight.SemiBold)
+                                    Text("مشاركة", fontWeight = FontWeight.SemiBold, maxLines = 1)
                                 }
 
                                 Button(
@@ -296,14 +298,15 @@ fun InventoryScreen(
                                         .weight(1f)
                                         .testTag("print_button"),
                                     shape = RoundedCornerShape(12.dp),
+                                    contentPadding = PaddingValues(horizontal = 4.dp, vertical = 10.dp),
                                     colors = ButtonDefaults.buttonColors(
-                                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                                        contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer
                                     )
                                 ) {
                                     Icon(AppIcons.Print, contentDescription = null, modifier = Modifier.size(18.dp))
                                     Spacer(modifier = Modifier.width(6.dp))
-                                    Text("طباعة", fontWeight = FontWeight.SemiBold)
+                                    Text("طباعة", fontWeight = FontWeight.SemiBold, maxLines = 1)
                                 }
                             }
                         }
