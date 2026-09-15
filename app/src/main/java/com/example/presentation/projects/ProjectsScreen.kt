@@ -28,15 +28,11 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.ElectricBolt
-import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.Sort
-import androidx.compose.material.icons.outlined.ElectricBolt
+import com.example.presentation.components.AppIcons
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -136,7 +132,7 @@ fun ProjectsScreen(
                 title = {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
-                            imageVector = Icons.Default.ElectricBolt,
+                            imageVector = AppIcons.ElectricBolt,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(24.dp)
@@ -155,7 +151,7 @@ fun ProjectsScreen(
                             onClick = { showSortMenu = true },
                             modifier = Modifier.testTag("sort_menu_button")
                         ) {
-                            Icon(imageVector = Icons.Default.Sort, contentDescription = "ترتيب المشاريع")
+                            Icon(imageVector = AppIcons.Sort, contentDescription = "ترتيب المشاريع")
                         }
                         DropdownMenu(
                             expanded = showSortMenu,
@@ -232,7 +228,7 @@ fun ProjectsScreen(
                 }
             } else if (uiState.projects.isEmpty()) {
                 EmptyStateView(
-                    icon = Icons.Outlined.ElectricBolt,
+                    icon = AppIcons.ElectricBolt,
                     title = if (uiState.searchQuery.isEmpty()) "لا توجد مشاريع حتى الآن" else "لا توجد نتائج بحث",
                     description = if (uiState.searchQuery.isEmpty()) "ابدأ بإضافة مشروع كهربائي جديد لتقسيمه إلى قطاعات وحساب الكميات بدقة" else "جرب البحث باسم مشروع آخر",
                     buttonText = if (uiState.searchQuery.isEmpty()) "إضافة أول مشروع" else null,
@@ -362,7 +358,7 @@ fun ProjectItemCard(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Folder,
+                            imageVector = AppIcons.Folder,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(22.dp)
@@ -410,7 +406,7 @@ fun ProjectItemCard(
                         )
                         DropdownMenuItem(
                             text = { Text("نسخ (تكرار)") },
-                            leadingIcon = { Icon(Icons.Default.ContentCopy, contentDescription = null) },
+                            leadingIcon = { Icon(AppIcons.ContentCopy, contentDescription = null) },
                             onClick = {
                                 menuExpanded = false
                                 onDuplicate()

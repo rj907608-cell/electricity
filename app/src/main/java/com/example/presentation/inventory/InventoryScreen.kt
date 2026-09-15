@@ -33,13 +33,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Assessment
-import androidx.compose.material.icons.filled.ContentCopy
-import androidx.compose.material.icons.filled.ExpandLess
-import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.material.icons.filled.Inventory2
-import androidx.compose.material.icons.filled.Print
 import androidx.compose.material.icons.filled.Share
+import com.example.presentation.components.AppIcons
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -219,7 +214,7 @@ fun InventoryScreen(
                 val inventory = uiState.inventory
                 if (inventory == null || inventory.totals.isEmpty()) {
                     EmptyStateView(
-                        icon = Icons.Default.Inventory2,
+                        icon = AppIcons.Inventory2,
                         title = "لا توجد مواد مسجلة في هذا المشروع",
                         description = "قم بالدخول إلى أحد القطاعات وحدد كميات المواد لتظهر هنا الفاتورة الإجمالية والجرد النهائي",
                         buttonText = "العودة للقطاعات",
@@ -259,7 +254,7 @@ fun InventoryScreen(
                                         contentColor = MaterialTheme.colorScheme.onPrimaryContainer
                                     )
                                 ) {
-                                    Icon(Icons.Default.ContentCopy, contentDescription = null, modifier = Modifier.size(18.dp))
+                                    Icon(AppIcons.ContentCopy, contentDescription = null, modifier = Modifier.size(18.dp))
                                     Spacer(modifier = Modifier.width(6.dp))
                                     Text("نسخ", fontWeight = FontWeight.SemiBold)
                                 }
@@ -291,7 +286,7 @@ fun InventoryScreen(
                                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                 ) {
-                                    Icon(Icons.Default.Print, contentDescription = null, modifier = Modifier.size(18.dp))
+                                    Icon(AppIcons.Print, contentDescription = null, modifier = Modifier.size(18.dp))
                                     Spacer(modifier = Modifier.width(6.dp))
                                     Text("طباعة", fontWeight = FontWeight.SemiBold)
                                 }
@@ -312,7 +307,7 @@ fun InventoryScreen(
                                         modifier = Modifier.padding(bottom = 12.dp)
                                     ) {
                                         Icon(
-                                            imageVector = Icons.Default.Assessment,
+                                            imageVector = AppIcons.Assessment,
                                             contentDescription = null,
                                             tint = MaterialTheme.colorScheme.primary,
                                             modifier = Modifier.size(22.dp)
@@ -438,7 +433,7 @@ fun InventoryScreen(
                                             }
                                             IconButton(onClick = { viewModel.toggleBreakdownExpanded() }) {
                                                 Icon(
-                                                    imageVector = if (uiState.isBreakdownExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                                                    imageVector = if (uiState.isBreakdownExpanded) AppIcons.ExpandLess else AppIcons.ExpandMore,
                                                     contentDescription = null
                                                 )
                                             }

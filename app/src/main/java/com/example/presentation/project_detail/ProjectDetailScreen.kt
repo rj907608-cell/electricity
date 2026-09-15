@@ -27,12 +27,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Assessment
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.DoorBack
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.MeetingRoom
 import androidx.compose.material.icons.filled.MoreVert
+import com.example.presentation.components.AppIcons
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -160,7 +158,7 @@ fun ProjectDetailScreen(
                             .testTag("generate_inventory_top_button")
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Assessment,
+                            imageVector = AppIcons.Assessment,
                             contentDescription = null,
                             modifier = Modifier.size(18.dp)
                         )
@@ -202,7 +200,7 @@ fun ProjectDetailScreen(
                 }
             } else if (uiState.sectors.isEmpty()) {
                 EmptyStateView(
-                    icon = Icons.Default.MeetingRoom,
+                    icon = AppIcons.MeetingRoom,
                     title = "لا توجد قطاعات في هذا المشروع",
                     description = "أضف القطاعات المكونة للمشروع (مثل: الصالون، غرفة النوم، المطبخ، الموزع) لإضافة مستلزمات كل قطاع",
                     buttonText = "إضافة أول قطاع",
@@ -340,7 +338,7 @@ fun SectorItemCard(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    imageVector = Icons.Default.DoorBack,
+                    imageVector = AppIcons.DoorBack,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(24.dp)

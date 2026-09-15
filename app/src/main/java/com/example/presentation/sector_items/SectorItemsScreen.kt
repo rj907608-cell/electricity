@@ -27,8 +27,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.ElectricalServices
-import androidx.compose.material.icons.filled.Remove
+import com.example.presentation.components.AppIcons
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -222,7 +221,7 @@ fun SectorItemsScreen(
                 }
             } else if (uiState.materials.isEmpty()) {
                 EmptyStateView(
-                    icon = Icons.Default.ElectricalServices,
+                    icon = AppIcons.ElectricalServices,
                     title = "لا توجد مواد مطابقة للبحث",
                     description = "جرب البحث باسم آخر مثل: بريز، شمبر، لمبة، كبل...",
                     modifier = Modifier.weight(1f)
@@ -356,7 +355,7 @@ fun MaterialCounterRow(
                         .testTag("decrement_${item.materialId}")
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Remove,
+                        imageVector = AppIcons.Remove,
                         contentDescription = "إنقاص الكمية",
                         modifier = Modifier.size(18.dp)
                     )
