@@ -1,0 +1,66 @@
+package com.example.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+// Brand palette - Electrical & Engineering
+val ElectricBlue = Color(0xFF1565C0)
+val ElectricBlueDark = Color(0xFF0D47A1)
+val ElectricBlueLight = Color(0xFF1E88E5)
+
+val AmberAccent = Color(0xFFFFA000)
+val AmberAccentDark = Color(0xFFFF8F00)
+val AmberAccentLight = Color(0xFFFFD54F)
+
+val SlateGrey = Color(0xFF455A64)
+val SlateGreyLight = Color(0xFF90A4AE)
+
+// Light Theme
+val md_theme_light_primary = Color(0xFF1565C0)
+val md_theme_light_onPrimary = Color(0xFFFFFFFF)
+val md_theme_light_primaryContainer = Color(0xFFD6E4FF)
+val md_theme_light_onPrimaryContainer = Color(0xFF001B3F)
+val md_theme_light_secondary = Color(0xFFD97706)
+val md_theme_light_onSecondary = Color(0xFFFFFFFF)
+val md_theme_light_secondaryContainer = Color(0xFFFFE0B2)
+val md_theme_light_onSecondaryContainer = Color(0xFF2E1500)
+val md_theme_light_tertiary = Color(0xFF00695C)
+val md_theme_light_onTertiary = Color(0xFFFFFFFF)
+val md_theme_light_tertiaryContainer = Color(0xFFB2DFDB)
+val md_theme_light_onTertiaryContainer = Color(0xFF00201A)
+val md_theme_light_error = Color(0xFFBA1A1A)
+val md_theme_light_onError = Color(0xFFFFFFFF)
+val md_theme_light_errorContainer = Color(0xFFFFDAD6)
+val md_theme_light_onErrorContainer = Color(0xFF410002)
+val md_theme_light_background = Color(0xFFF8F9FA)
+val md_theme_light_onBackground = Color(0xFF191C1E)
+val md_theme_light_surface = Color(0xFFFFFFFF)
+val md_theme_light_onSurface = Color(0xFF191C1E)
+val md_theme_light_surfaceVariant = Color(0xFFE1E2EC)
+val md_theme_light_onSurfaceVariant = Color(0xFF44474F)
+val md_theme_light_outline = Color(0xFF74777F)
+
+// Dark Theme
+val md_theme_dark_primary = Color(0xFFA8C7FA)
+val md_theme_dark_onPrimary = Color(0xFF003062)
+val md_theme_dark_primaryContainer = Color(0xFF00468B)
+val md_theme_dark_onPrimaryContainer = Color(0xFFD6E4FF)
+val md_theme_dark_secondary = Color(0xFFFFB74D)
+val md_theme_dark_onSecondary = Color(0xFF4A2800)
+val md_theme_dark_secondaryContainer = Color(0xFF6B3C00)
+val md_theme_dark_onSecondaryContainer = Color(0xFFFFE0B2)
+val md_theme_dark_tertiary = Color(0xFF80CBC4)
+val md_theme_dark_onTertiary = Color(0xFF003730)
+val md_theme_dark_tertiaryContainer = Color(0xFF004F45)
+val md_theme_dark_onTertiaryContainer = Color(0xFFB2DFDB)
+val md_theme_dark_error = Color(0xFFFFB4AB)
+val md_theme_dark_onError = Color(0xFF690005)
+val md_theme_dark_errorContainer = Color(0xFF93000A)
+val md_theme_dark_onErrorContainer = Color(0xFFFFDAD6)
+val md_theme_dark_background = Color(0xFF111315)
+val md_theme_dark_onBackground = Color(0xFFE2E2E6)
+val md_theme_dark_surface = Color(0xFF1A1C1E)
+val md_theme_dark_onSurface = Color(0xFFE2E2E6)
+val md_theme_dark_surfaceVariant = Color(0xFF44474F)
+val md_theme_dark_onSurfaceVariant = Color(0xFFC4C6D0)
+val md_theme_dark_outline = Color(0xFF8E9099)
+
